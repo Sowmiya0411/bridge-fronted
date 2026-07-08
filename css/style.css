@@ -1,0 +1,420 @@
+/* CSS Design System for BuildBridge */
+
+:root {
+    --primary-color: #0f4c81;     /* Classic Navy Blue */
+    --primary-hover: #0b375e;
+    --secondary-color: #198754;   /* Forest Green */
+    --accent-color: #f5a623;      /* Golden Sand */
+    --bg-color: #f8fafc;          /* Off White Background */
+    --card-bg: #ffffff;
+    --text-color: #334155;        /* Slate Gray Text */
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;      /* Border grey */
+    --success-color: #10b981;     /* Emerald */
+    --danger-color: #ef4444;      /* Coral Red */
+    --warning-color: #f59e0b;     /* Amber */
+    --font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 4px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 550;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn.cancel-btn {
+    background-color: var(--text-muted);
+    color: white;
+    margin-left: 10px;
+}
+
+.btn.cancel-btn:hover {
+    background-color: #475569;
+}
+
+.btn.delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+.btn.edit-btn {
+    background-color: var(--warning-color);
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.btn.edit-btn:hover {
+    background-color: #d97706;
+}
+
+.btn.table-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn.table-btn:hover {
+    background-color: #157347;
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: 1px solid #cbd5e1;
+    color: #f1f5f9;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* Layout Containers */
+.main-content {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Cards Grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.btn-open {
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-open:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Forms styling */
+.form-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.form-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 22px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background-color: white;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Tables styling */
+.list-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.list-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f1f5f9;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.data-table tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 9999px;
+}
+
+.badge.pending { background-color: #fef3c7; color: #d97706; }
+.badge.assigned { background-color: #dbeafe; color: #2563eb; }
+.badge.active { background-color: #d1fae5; color: #059669; }
+.badge.completed { background-color: #d1fae5; color: #059669; }
+.badge.rejected { background-color: #fee2e2; color: #dc2626; }
+.badge.cancelled { background-color: #f1f5f9; color: #475569; }
+
+.badge.client { background-color: #e0f2fe; color: #0369a1; }
+.badge.contractor { background-color: #fef3c7; color: #b45309; }
+.badge.supervisor { background-color: #f3e8ff; color: #6b21a8; }
+
+.priority-high { background-color: #fee2e2; color: #dc2626; }
+.priority-medium { background-color: #fef3c7; color: #d97706; }
+.priority-low { background-color: #e0f2fe; color: #0369a1; }
+
+/* Table Inputs */
+.table-input {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    font-size: 13px;
+    width: 100px;
+    outline: none;
+}
+
+.table-select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    font-size: 13px;
+    background-color: white;
+    outline: none;
+}
+
+.action-cell {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.assign-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.assigned-text {
+    font-size: 12px;
+    font-weight: 550;
+    color: var(--secondary-color);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+    border-top: 4px solid var(--accent-color);
+}
+
+/* Responsive navigation adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

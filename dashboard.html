@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildBridge Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Simple Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BuildBridge</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li id="nav-inquiries"><a href="inquiry.html">Inquiries</a></li>
+            <li id="nav-tasks"><a href="task.html">Tasks</a></li>
+            <li id="nav-assignments"><a href="assignment.html">Assignments</a></li>
+            <li id="nav-worklogs"><a href="worklog.html">Work Logs</a></li>
+        </ul>
+        <div class="buttons">
+            <button onclick="auth.logout()" class="btn logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-content">
+        <div class="welcome-box">
+            <h1>Welcome, <span id="user-display-name">User</span>!</h1>
+            <p>Role: <span id="user-role" class="badge">ROLE</span></p>
+        </div>
+
+        <h2 class="section-title">Project Control Panel</h2>
+
+        <div class="cards" id="dashboard-cards">
+            <!-- Project Inquiry Card -->
+            <div class="card" id="card-inquiry">
+                <h3>Project Inquiry</h3>
+                <p>Create and view project construction proposals.</p>
+                <button onclick="location.href='inquiry.html'" class="btn-open">Open Inquiries</button>
+            </div>
+
+            <!-- Tasks Card -->
+            <div class="card" id="card-tasks">
+                <h3>Construction Tasks</h3>
+                <p>Manage and track construction requirements & tasks.</p>
+                <button onclick="location.href='task.html'" class="btn-open">Open Tasks</button>
+            </div>
+
+            <!-- Assignments Card -->
+            <div class="card" id="card-assignments">
+                <h3>Contractor Assignment</h3>
+                <p>Assign qualified contractors to construction tasks.</p>
+                <button onclick="location.href='assignment.html'" class="btn-open">Open Assignments</button>
+            </div>
+
+            <!-- Work Logs Card -->
+            <div class="card" id="card-worklogs">
+                <h3>Daily Work Logs</h3>
+                <p>View progress and daily details submitted from sites.</p>
+                <button onclick="location.href='worklog.html'" class="btn-open">Open Work Logs</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BuildBridge | Construction Management System</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

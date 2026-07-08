@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Work Logs - BuildBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/task.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Simple Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BuildBridge</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li id="nav-inquiries"><a href="inquiry.html">Inquiries</a></li>
+            <li id="nav-tasks"><a href="task.html">Tasks</a></li>
+            <li id="nav-assignments"><a href="assignment.html">Assignments</a></li>
+            <li><a href="worklog.html" class="active">Work Logs</a></li>
+        </ul>
+        <div class="buttons">
+            <button onclick="auth.logout()" class="btn logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-content">
+        
+        <!-- Form Section (Supervisor/Contractor only) -->
+        <div class="form-container" id="log-form-section">
+            <h2 id="form-title">Create Daily Work Log</h2>
+            <form id="logForm">
+                <input type="hidden" id="logId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="inquiryId">Inquiry ID (Project)</label>
+                        <input type="number" id="inquiryId" placeholder="e.g. 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="logDate">Log Date</label>
+                        <input type="date" id="logDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="laborCount">Labor Count</label>
+                        <input type="number" id="laborCount" placeholder="e.g. 15" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weatherCondition">Weather Condition</label>
+                        <input type="text" id="weatherCondition" placeholder="e.g. Sunny, Clear" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="progressIncrement">Progress Increment (%)</label>
+                        <input type="number" id="progressIncrement" min="0" max="100" placeholder="e.g. 5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="supervisorId">Supervisor User ID</label>
+                        <input type="number" id="supervisorId" placeholder="Supervisor ID (Automatically sets on save)" required>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label for="notes">Progress Notes</label>
+                        <textarea id="notes" placeholder="Specify what was achieved today..."></textarea>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" id="submit-btn" class="btn submit-btn">Create Log</button>
+                    <button type="button" id="cancel-btn" class="btn cancel-btn" style="display: none;">Cancel</button>
+                </div>
+            </form>
+            <p id="message"></p>
+        </div>
+
+        <!-- Log List Section -->
+        <div class="list-container">
+            <h2>Daily Progress Updates List</h2>
+            <div class="table-responsive">
+                <table id="logTable" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Project Site</th>
+                            <th>Labor Count</th>
+                            <th>Weather</th>
+                            <th>Progress Made</th>
+                            <th>Logged By</th>
+                            <th>Notes</th>
+                            <th id="actions-header">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BuildBridge | Construction Management System</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/worklog.js"></script>
+</body>
+</html>

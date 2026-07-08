@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Assignment - BuildBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/task.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Simple Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BuildBridge</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li id="nav-inquiries"><a href="inquiry.html">Inquiries</a></li>
+            <li id="nav-tasks"><a href="task.html">Tasks</a></li>
+            <li><a href="assignment.html" class="active">Assignments</a></li>
+            <li id="nav-worklogs"><a href="worklog.html">Work Logs</a></li>
+        </ul>
+        <div class="buttons">
+            <button onclick="auth.logout()" class="btn logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-content">
+        
+        <!-- Form Section (Supervisor only) -->
+        <div class="form-container" id="assignment-form-section">
+            <h2 id="form-title">Assign Contractor to Task</h2>
+            <form id="assignmentForm">
+                <input type="hidden" id="assignmentId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="taskId">Task ID</label>
+                        <input type="number" id="taskId" placeholder="e.g. 5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contractorId">Contractor User ID</label>
+                        <input type="number" id="contractorId" placeholder="e.g. 2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignedDate">Assigned Date</label>
+                        <input type="date" id="assignedDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hourlyRate">Hourly Rate ($)</label>
+                        <input type="number" id="hourlyRate" step="0.01" placeholder="e.g. 45.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hoursAllocated">Hours Allocated</label>
+                        <input type="number" id="hoursAllocated" placeholder="e.g. 120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="ACTIVE">ACTIVE</option>
+                            <option value="COMPLETED">COMPLETED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" id="submit-btn" class="btn submit-btn">Create Assignment</button>
+                    <button type="button" id="cancel-btn" class="btn cancel-btn" style="display: none;">Cancel</button>
+                </div>
+            </form>
+            <p id="message"></p>
+        </div>
+
+        <!-- Assignment List Section -->
+        <div class="list-container">
+            <h2>Contractor Assignments List</h2>
+            <div class="table-responsive">
+                <table id="assignmentTable" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Task Details</th>
+                            <th>Contractor</th>
+                            <th>Assigned Date</th>
+                            <th>Hourly Rate</th>
+                            <th>Hours Allocated</th>
+                            <th>Status</th>
+                            <th id="actions-header">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BuildBridge | Construction Management System</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/assignment.js"></script>
+</body>
+</html>

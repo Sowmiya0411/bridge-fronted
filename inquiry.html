@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Inquiries - BuildBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/inquiry.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Simple Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BuildBridge</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="inquiry.html" class="active">Inquiries</a></li>
+            <li id="nav-tasks"><a href="task.html">Tasks</a></li>
+            <li id="nav-assignments"><a href="assignment.html">Assignments</a></li>
+            <li id="nav-worklogs"><a href="worklog.html">Work Logs</a></li>
+        </ul>
+        <div class="buttons">
+            <button onclick="auth.logout()" class="btn logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-content">
+        
+        <!-- CLIENT View: Create Inquiry Form -->
+        <div id="create-inquiry-section" class="form-container">
+            <h2>Create New Project Inquiry</h2>
+            <form id="inquiryForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="siteName">Site Name</label>
+                        <input type="text" id="siteName" placeholder="e.g. Oakridge Heights" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectType">Project Type</label>
+                        <input type="text" id="projectType" placeholder="e.g. Residential Villa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="e.g. Seattle, WA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bhkCount">BHK Count</label>
+                        <input type="number" id="bhkCount" min="1" placeholder="e.g. 3" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="floorCount">Floor Count</label>
+                        <input type="number" id="floorCount" min="1" placeholder="e.g. 2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget ($)</label>
+                        <input type="number" id="budget" placeholder="e.g. 450000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="text" id="duration" placeholder="e.g. 8 Months" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn submit-btn">Submit Inquiry</button>
+            </form>
+            <p id="message"></p>
+        </div>
+
+        <!-- Shared: Inquiry List Section -->
+        <div class="list-container">
+            <h2 id="list-title">My Inquiries</h2>
+            <p id="list-message"></p>
+            <div class="table-responsive">
+                <table id="inquiryTable" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Site Name</th>
+                            <th>Project Type</th>
+                            <th>Location</th>
+                            <th>Budget</th>
+                            <th>Dates</th>
+                            <th>Status</th>
+                            <th id="actions-header">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inquiryTableBody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BuildBridge | Construction Management System</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/inquiry.js"></script>
+</body>
+</html>

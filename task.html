@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Tasks - BuildBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/task.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Simple Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BuildBridge</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li id="nav-inquiries"><a href="inquiry.html">Inquiries</a></li>
+            <li><a href="task.html" class="active">Tasks</a></li>
+            <li id="nav-assignments"><a href="assignment.html">Assignments</a></li>
+            <li id="nav-worklogs"><a href="worklog.html">Work Logs</a></li>
+        </ul>
+        <div class="buttons">
+            <button onclick="auth.logout()" class="btn logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-content">
+        
+        <!-- Form Section -->
+        <div class="form-container" id="task-form-section">
+            <h2 id="form-title">Create Construction Task</h2>
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="inquiryId">Inquiry ID (Project)</label>
+                        <input type="number" id="inquiryId" placeholder="e.g. 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Task Title</label>
+                        <input type="text" id="title" placeholder="e.g. Foundation Laying" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Provide details about the task..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority">
+                            <option value="LOW">LOW</option>
+                            <option value="MEDIUM">MEDIUM</option>
+                            <option value="HIGH">HIGH</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <!-- Note: TaskStatus enum is empty, so we support empty option or selection -->
+                            <option value="">No Status (Null)</option>
+                            <option value="PENDING">PENDING</option>
+                            <option value="IN_PROGRESS">IN_PROGRESS</option>
+                            <option value="COMPLETED">COMPLETED</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estimatedCost">Estimated Cost ($)</label>
+                        <input type="number" id="estimatedCost" placeholder="e.g. 15000">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" id="submit-btn" class="btn submit-btn">Create Task</button>
+                    <button type="button" id="cancel-btn" class="btn cancel-btn" style="display: none;">Cancel</button>
+                </div>
+            </form>
+            <p id="message"></p>
+        </div>
+
+        <!-- Task List Section -->
+        <div class="list-container">
+            <h2>Construction Tasks List</h2>
+            <div class="table-responsive">
+                <table id="taskTable" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Inquiry ID</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Cost</th>
+                            <th id="actions-header">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BuildBridge | Construction Management System</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/task.js"></script>
+</body>
+</html>
