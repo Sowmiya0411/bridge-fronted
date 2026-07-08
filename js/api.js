@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = 'https://bridge-backend-ddzr.onrender.com/api';
 
 function getHeaders() {
     const token = localStorage.getItem('token');
